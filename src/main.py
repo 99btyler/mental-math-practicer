@@ -28,9 +28,14 @@ def get_problem(addition=True, digits_amount=1, easy=True):
 	return problem
 
 def ask_problem(problem=['1+1', 2]):
-	answer = ""
-	while not answer.isdigit() or int(answer) != problem[1]:
-		answer = input(f"{problem[0]}: ")
+	answer = 0
+	while True:
+		try:
+			answer = int(input(f"{problem[0]}: "))
+			if answer == problem[1]:
+				break
+		except ValueError:
+			continue # asks again
 
 
 min_digits_amount = 2
